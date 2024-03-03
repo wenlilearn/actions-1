@@ -1,7 +1,7 @@
 name: My First Workflow
 on:
     schedule:
-        - cron: "*/1 * * * *"
+        - cron: "*/10 * * * *"
 jobs:
     first_job:
         runs-on: ubuntu-latest
