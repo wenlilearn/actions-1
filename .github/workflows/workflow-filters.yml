@@ -1,0 +1,25 @@
+name: Exploring Worflow Filters and activities
+on: 
+  workflow_dispatch:
+  push: 
+    # branch-ignore to ignore branches.
+    # branches-ignore:
+    #   - features/*
+    # branches for only run on these branches. Doesn't work with ignore.
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - closed
+    paths-ignore: # Only run if the changes contains anything other than README.md
+      - README.md
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Echo Job Type
+      run: echo "This workflow/job/step is a ${{ github.event_name }} event."
