@@ -1,0 +1,13 @@
+name: Dump Context
+on: [push]
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Dump Context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
