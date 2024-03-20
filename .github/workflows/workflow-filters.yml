@@ -8,6 +8,7 @@ on:
     # branches for only run on these branches. Doesn't work with ignore.
     branches:
       - main
+      - '!feature/*'
   pull_request:
     types:
       - opened
